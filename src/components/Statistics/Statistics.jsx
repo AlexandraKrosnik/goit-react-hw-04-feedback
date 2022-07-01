@@ -1,24 +1,19 @@
-import { Component } from 'react';
 import { StatisticList, StatisticItem } from './Statistics.styled';
 import PropTypes from 'prop-types';
 
-export default class Statistics extends Component {
-  render() {
-    let { good, neutral, bad, total, positive } = this.props.dataFeedback;
+export const Statistics = ({ dataFeedback }) => {
+  let { good, neutral, bad, total, positive } = dataFeedback;
 
-    return (
-      <StatisticList>
-        <StatisticItem>Good: {good}</StatisticItem>
-        <StatisticItem>Neutral: {neutral}</StatisticItem>
-        <StatisticItem>Bad: {bad}</StatisticItem>
-        <StatisticItem>Total: {total}</StatisticItem>
-        <StatisticItem>
-          Positive feedback: {Math.round(positive)}%
-        </StatisticItem>
-      </StatisticList>
-    );
-  }
-}
+  return (
+    <StatisticList>
+      <StatisticItem>Good: {good}</StatisticItem>
+      <StatisticItem>Neutral: {neutral}</StatisticItem>
+      <StatisticItem>Bad: {bad}</StatisticItem>
+      <StatisticItem>Total: {total}</StatisticItem>
+      <StatisticItem>Positive feedback: {Math.round(positive)}%</StatisticItem>
+    </StatisticList>
+  );
+};
 
 Statistics.propTypes = {
   dataFeedback: PropTypes.shape({
